@@ -1,0 +1,10 @@
+.chart {
+    padding: 20px;
+    box-shadow: 0 0 15px -10px rgba(0,0,0,0.75);
+    border-radius: 8px;
+}
+
+.chartTitle {
+    font-size: 20px;
+    font-weight: 700;
+}
