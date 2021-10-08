@@ -1,33 +1,154 @@
-.userList {
+.user {
     flex: 4;
     margin: 0 3%;
 }
 
-.userlistuser {
+.usertitlecontainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.addUserButton {
+    width: 80px;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: teal;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.userContainer {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.userShow {
+    flex: 1;
+    box-shadow: 0 0 15px -10px rgba(0, 0, 0, 0.75);
+    border-radius: 8px;
+    padding: 20px;
+    margin-right: 20px;
+}
+
+.userUpdate {
+    flex: 2;
+    box-shadow: 0 0 15px -10px rgba(0, 0, 0, 0.75);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.userShowTop {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.userShowImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.userShowTopTitle {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.username {
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.usertitle {
+    font-weight: 300;
+    text-transform: capitalize;
+}
+
+.userShowTitle {
+    font-weight: 500;
+    font-size: 14px;
+    color: gray;
+    margin: 10px 0;
+}
+
+.usershowinfo {
+    margin: 20px 0;
     display: flex;
     align-items: center;
 }
 
-.userlistuserimage {
-    width: 32px;
-    height: 32px;
-    object-fit: cover;
-    margin-right: 10px;
-    border-radius: 50%;
-
+.usershowicon {
+    font-size: 14px !important;
 }
 
-.UserListEdit {
+.usershowtitleinfo {
+    margin-left: 20px;
+}
+
+.editusercontainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 20px;
+    position: relative;
+}
+
+.editinputs {
+    width: 40%;
+}
+
+.inputcontainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+}
+
+.inputlabel {
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.editimageandupload {
+    display: flex;
+    align-items: center;
+}
+
+.userinput {
     border: none;
-    border-radius: 10px;
-    padding: 5px 10px;
-    background-color: #3bb077;
-    color: white;
-    cursor: pointer;
-    margin-right: 10px;
+    padding: 7px 10px;
+    border-bottom: 1px solid gray;
+    margin-top: 10px;
 }
 
-.UserListDelete {
-    color: red !important;
+.userinput:focus {
+    outline: none;
+}
+
+.userimage {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 5px;
+}
+
+.updatebutton {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #0000b4;
+    padding: 5px 20px;
+    color: white;
+    border: none;
+    width: 120px;
+    border-radius: 7px;
     cursor: pointer;
 }
