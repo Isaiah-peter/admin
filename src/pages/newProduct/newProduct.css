@@ -1,0 +1,39 @@
+.newProduct {
+    flex: 4;
+    margin: 0 3%;
+}
+
+.newproductTitle {
+    margin-bottom: 20px;
+}
+
+.newproductform {
+    width: 40%;
+}
+
+.newproductitem {
+    display: flex;
+    flex-direction: column;
+}
+
+.newproductitem>label {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: grey;
+}
+
+.newproductitem>input {
+    padding: 10px;
+    font-weight: 16px;
+    margin-bottom: 10px;
+}
+
+.submitbutton {
+    font-size: 16px;
+    border: none;
+    padding: 5px;
+    width: 100px;
+    border-radius: 10px;
+    background-color: darkblue;
+    color: white;
+}

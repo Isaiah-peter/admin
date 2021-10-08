@@ -1,3 +1,69 @@
+export const data = [
+  {
+    name: "jan",
+    "Active User": 200,
+  },
+  {
+    name: "feb",
+    "Active User": 3000,
+  },
+  {
+    name: "match",
+    "Active User": 2000,
+  },
+  {
+    name: "april",
+    "Active User": 2780,
+  },
+  {
+    name: "may",
+    "Active User": 1890,
+  },
+  {
+    name: "june",
+    "Active User": 2390,
+  },
+  {
+    name: "junly",
+    "Active User": 3490,
+  },
+  {
+    name: "aug",
+    "Active User": 500,
+  },
+  {
+    name: "sept",
+    "Active User": 2000,
+  },
+  {
+    name: "oct",
+    "Active User": 1490,
+  },
+  {
+    name: "nov",
+    "Active User": 490,
+  },
+  {
+    name: "dec",
+    "Active User": 2490,
+  },
+];
+
+export const productdata = [
+  {
+    name: "jan",
+    sales: 200,
+  },
+  {
+    name: "feb",
+    sales: 3000,
+  },
+  {
+    name: "match",
+    sales: 2000,
+  },
+];
+
 export const rows = [
   {
     id: 1,
