@@ -17,8 +17,11 @@ import NewProduct from "./pages/newProduct/NewProduct";
 import Login from "./pages/login/Login";
 
 function App() {
-  const user = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user)
-    .currentUser.user.is_admin;
+  const user = JSON.parse(
+    JSON.parse(localStorage.getItem("persist:root"))?.user
+  ).currentUser.user.is_admin;
+
+  console.log(user);
   return (
     <Router>
       <Switch>
