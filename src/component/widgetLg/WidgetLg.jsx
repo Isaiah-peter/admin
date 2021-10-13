@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./widgetlg.css";
+import { userRequest } from "../../requestMethod";
+import { format } from "timeago.js";
 
 const WidgetLg = () => {
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    const getOrders = async () => {
+      try {
+        const res = await userRequest.get("/getallorder");
+        setOrders(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    getOrders();
+  }, []);
+
+  console.log(orders);
+
   const Button = ({ type }) => {
     return <button className={"widgetlgbutton " + type}>{type}</button>;
   };
@@ -15,66 +34,18 @@ const WidgetLg = () => {
           <th className="widgetlgTh">Amount</th>
           <th className="widgetlgTh">Status</th>
         </tr>
-        <tr className="widgetlgTr">
-          <td className="widgetlgUser">
-            <img
-              src="https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg"
-              alt=""
-              className="widgetlgUserImg"
-            />
-            <span className="widgetlgUsername">kelly micheal</span>
-          </td>
-          <td className="widgetlgdate">2 jun 2300</td>
-          <td className="widgetlgamount">#122</td>
-          <td className="widgetlgstatus">
-            <Button type="approved" />
-          </td>
-        </tr>
-        <tr className="widgetlgTr">
-          <td className="widgetlgUser">
-            <img
-              src="https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg"
-              alt=""
-              className="widgetlgUserImg"
-            />
-            <span className="widgetlgUsername">john peter</span>
-          </td>
-          <td className="widgetlgdate">2 jun 2100</td>
-          <td className="widgetlgamount">#1229</td>
-          <td className="widgetlgstatus">
-            <Button type="pending" />
-          </td>
-        </tr>
-        <tr className="widgetlgTr">
-          <td className="widgetlgUser">
-            <img
-              src="https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg"
-              alt=""
-              className="widgetlgUserImg"
-            />
-            <span className="widgetlgUsername">kelly micheal</span>
-          </td>
-          <td className="widgetlgdate">2 jun 2300</td>
-          <td className="widgetlgamount">#122</td>
-          <td className="widgetlgstatus">
-            <Button type="approved" />
-          </td>
-        </tr>
-        <tr className="widgetlgTr">
-          <td className="widgetlgUser">
-            <img
-              src="https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg"
-              alt=""
-              className="widgetlgUserImg"
-            />
-            <span className="widgetlgUsername">john peter</span>
-          </td>
-          <td className="widgetlgdate">2 jun 2100</td>
-          <td className="widgetlgamount">#1229</td>
-          <td className="widgetlgstatus">
-            <Button type="decline" />
-          </td>
-        </tr>
+        {orders.map((o) => (
+          <tr className="widgetlgTr">
+            <td className="widgetlgUser">
+              <span className="widgetlgUsername">{o.user_id}</span>
+            </td>
+            <td className="widgetlgdate">{format(o.CreatedAt)}</td>
+            <td className="widgetlgamount">#{o.Amount}</td>
+            <td className="widgetlgstatus">
+              <Button type={o.status} />
+            </td>
+          </tr>
+        ))}
       </table>
     </div>
   );
