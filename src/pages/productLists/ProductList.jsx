@@ -1,24 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./productlist.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
-import { productRows } from "../../dummydata";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../../redux/aipCall";
+import { deleteProduct, getProducts } from "../../redux/aipCall";
 
 const ProductList = () => {
-  const [data, setData] = useState(productRows);
   const dispatch = useDispatch();
   const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+    deleteProduct(id, dispatch);
   };
 
   useEffect(() => {
     getProducts(dispatch);
-  });
+  }, []);
 
-  const products = useSelector((state) => state.product.products);
+  const products = useSelector((state) => state.user.product.products);
 
   const columns = [
     { field: "ID", headerName: "ID", width: 90 },
@@ -29,22 +27,21 @@ const ProductList = () => {
       renderCell: (params) => {
         return (
           <div className="productlistuser">
-            <img className="productlistuserimage" src={params.row.img} alt="" />
-            {params.row.name}
+            <img
+              className="productlistuserimage"
+              src={params.row.image_url}
+              alt=""
+            />
+            {params.row.title}
           </div>
         );
       },
     },
     {
-      field: "stock",
+      field: "in_stock",
       headerName: "Stock",
       width: 200,
       editable: true,
-    },
-    {
-      field: "status",
-      headerName: "Status",
-      width: 110,
     },
     {
       field: "price",
@@ -58,12 +55,12 @@ const ProductList = () => {
       renderCell: (params) => {
         return (
           <>
-            <Link className="link" to={`/product/${params.row?.id}`}>
+            <Link className="link" to={`/product/${params.row?.ID}`}>
               <button className="productListEdit">Edit</button>
             </Link>
             <DeleteOutline
               className="productListDelete"
-              onClick={() => handleDelete(params.row?.id)}
+              onClick={() => handleDelete(params.row?.ID)}
             />
           </>
         );

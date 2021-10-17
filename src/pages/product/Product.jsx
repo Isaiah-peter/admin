@@ -1,11 +1,19 @@
 import React from "react";
 import "./product.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Chart from "../../component/chart/Chart";
 import { productdata } from "../../dummydata";
 import { Publish } from "@material-ui/icons";
+import { useSelector } from "react-redux";
 
 const Product = () => {
+  const param = useParams();
+  const id = param.id;
+
+  const product = useSelector((state) =>
+    state.user.product.products.find((item) => item.ID === id)
+  );
+  console.log(product);
   return (
     <div className="product">
       <div className="productTitleContainer">
